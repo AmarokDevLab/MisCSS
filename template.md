@@ -15,7 +15,7 @@ Los usuarios encontrarán una variedad de proyectos que abarcan desde diseños s
 Si haz trabajado con otros Devs, puedes colocar en esta sección:
 
 1. Nombre de cada miembro del equipo
-2. Rol que ocuparon durante el trabajo --> Ej: Front-end, Back-end, Designer UX/UI, etc
+2. Rol que ocuparon durante el trabajo  Ej: Front-end, Back-end, Designer UX/UI, etc
 3. Si trabajaron usando una metodología ágil (como scrum) no olvides destacarlo en esta sección
 
 Si en cambio haz trabajado solo en este desarrollo puedes obviar esta sección, o realizar una breve descripción sobre todas las tareas de las que te haz encargado. -->
