@@ -2,7 +2,7 @@
 
 <!-- Coloca una imagen representativa de tu desarrollo siempre que puedas -->
 
-![Texto ALT de la imagen que utilices para mostrar el proyecto](https://github.com/AmarokDevLab/Imagenes/blob/master/Binario.jpg)
+![Texto ALT de la imagen que utilices para mostrar el proyecto](https://github.com/AmarokDevLab/ArchivosDeApoyo/blob/master/imagenes/Binario.jpg)
 
 ## Descripción
 
