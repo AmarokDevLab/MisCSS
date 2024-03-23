@@ -1,0 +1,351 @@
+/* Importa la fuente Poppins desde Google Fonts */
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap";
+
+/* Establece márgenes y relleno a 0 y utiliza el modelo de caja de borde para todos los elementos */
+* {
+  margin: 0; /* Establece el margen a 0 */
+  padding: 0; /* Establece el relleno a 0 */
+  box-sizing: border-box; /* Utiliza el modelo de caja de borde */
+  font-family: "Poppins", sans-serif; /* Aplica la fuente Poppins a todos los elementos */
+}
+
+/* Elimina márgenes y relleno predeterminados del cuerpo */
+body {
+  margin: 0; /* Establece el margen a 0 */
+  padding: 0; /* Establece el relleno a 0 */
+}
+
+/* Estilos del contenedor de fondo */
+.background-container {
+  position: fixed; /* Establece la posición fija */
+  top: 0; /* Coloca el contenedor en la parte superior */
+  left: 0; /* Coloca el contenedor en la parte izquierda */
+  width: 100%; /* Establece el ancho al 100% del viewport */
+  height: 100%; /* Establece la altura al 100% del viewport */
+  background: url('../img/biblioteca.jpg') center center/cover fixed; /* Fondo de imagen con posición centrada y tamaño de cobertura */
+  opacity: 0.6; /* Ajusta el valor de opacidad según sea necesario */
+  z-index: -1; /* Asegura que el contenedor esté detrás de los otros elementos */
+}
+
+/* Estilos de la barra de navegación */
+.navigation {
+  position: fixed; /* Establece la posición fija */
+  inset: 20px 0 20px 20px; /* Posiciona la barra de navegación */
+  width: 75px; /* Establece el ancho */
+  background: #fff; /* Color de fondo */
+  transition: 0.5s; /* Transición suave */
+  display: flex; /* Usa el modelo de caja flexible */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  border-radius: 15px; /* Borde redondeado */
+}
+
+.navigation .menuToggle {
+  position: absolute; /* Establece la posición absoluta */
+  top: 0; /* Coloca el menú en la parte superior */
+  left: 0; /* Coloca el menú en la parte izquierda */
+  width: 100%; /* Establece el ancho al 100% del contenedor */
+  height: 60px; /* Establece la altura */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25); /* Borde inferior */
+  cursor: pointer; /* Cambia el cursor a un puntero */
+  display: flex; /* Usa el modelo de caja flexible */
+  align-items: center; /* Centra verticalmente */
+  justify-content: flex-start; /* Alinea el contenido al inicio */
+  padding: 0 23px; /* Relleno */
+}
+
+/* Estilos del pseudo-elemento ::before del .menuToggle */
+.navigation .menuToggle::before {
+  content: ""; /* Inserta contenido vacío */
+  position: absolute; /* Establece la posición absoluta */
+  width: 30px; /* Establece el ancho */
+  height: 2px; /* Establece la altura */
+  background: #333; /* Color de fondo */
+  transform: translateY(-8px); /* Traslada hacia arriba */
+  transition: 0.5s; /* Transición suave */
+}
+
+/* Estilos del pseudo-elemento ::after del .menuToggle */
+.navigation .menuToggle::after {
+  content: ""; /* Inserta contenido vacío */
+  position: absolute; /* Establece la posición absoluta */
+  width: 30px; /* Establece el ancho */
+  height: 2px; /* Establece la altura */
+  background: #333; /* Color de fondo */
+  transform: translateY(8px); /* Traslada hacia abajo */
+  transition: 0.5s; /* Transición suave */
+  box-shadow: 0 -8px 0 #333; /* Sombra en la parte inferior */
+}
+
+/* Estilos de la lista desordenada dentro de la navegación */
+.navigation ul {
+  display: flex; /* Usa el modelo de caja flexible */
+  flex-direction: column; /* Establece la dirección de los elementos */
+  gap: 10px; /* Espacio entre elementos */
+  width: 100%; /* Establece el ancho al 100% */
+}
+
+/* Estilos de cada ítem de la lista */
+.navigation ul li {
+  list-style: none; /* Elimina los marcadores de lista */
+  position: relative; /* Establece la posición relativa */
+  width: 100%; /* Establece el ancho al 100% */
+  height: 60px; /* Establece la altura */
+  padding: 0 10px; /* Añade relleno a los lados */
+  transition: 0.5s; /* Transición suave */
+}
+
+/* Estilos para el ítem activo de la lista */
+.navigation ul li.active {
+  transform: translateX(30px); /* Mueve el ítem activo hacia la derecha */
+}
+
+/* Estilos para el ícono del ítem activo */
+.navigation ul li.active a .icon {
+  color: #fff; /* Color del ícono */
+  background: var(--clr); /* Fondo del ícono */
+}
+
+/* Estilos para el pseudo-elemento ::before del ítem activo */
+.navigation ul li.active a .icon::before {
+  opacity: 0.5; /* Opacidad del pseudo-elemento */
+}
+
+/* Estilos para el texto del ítem activo */
+.navigation ul li.active a .text {
+  color: var(--clr); /* Color del texto */
+}
+
+/* Estilos para el enlace de cada ítem */
+.navigation ul li a {
+  position: relative; /* Establece la posición relativa */
+  display: flex; /* Usa el modelo de caja flexible */
+  align-items: center; /* Centra verticalmente */
+  justify-content: flex-start; /* Alinea el contenido al inicio */
+  text-align: center; /* Alinea el texto al centro */
+  text-decoration: none; /* Elimina el subrayado del enlace */
+}
+/* Estilos del ícono dentro del enlace */
+.navigation ul li a .icon {
+  position: relative; /* Establece la posición relativa */
+  display: block; /* Muestra como bloque */
+  min-width: 55px; /* Establece el ancho mínimo */
+  height: 55px; /* Establece la altura */
+  line-height: 60px; /* Establece la altura de línea */
+  transition: 0.5s; /* Transición suave */
+  border-radius: 10px; /* Establece el radio de borde */
+  font-size: 1.75em; /* Tamaño de fuente */
+  color: #222; /* Color del texto */
+}
+
+/* Estilos del pseudo-elemento ::before del ícono */
+.navigation ul li a .icon::before {
+  content: ""; /* Inserta contenido vacío */
+  position: absolute; /* Establece la posición absoluta */
+  top: 10px; /* Distancia desde la parte superior */
+  left: 0; /* Distancia desde el lado izquierdo */
+  width: 100%; /* Establece el ancho al 100% */
+  height: 100%; /* Establece la altura al 100% */
+  background: var(--clr); /* Color de fondo */
+  filter: blur(8px); /* Aplica desenfoque */
+  opacity: 0; /* Establece la opacidad */
+  transition: 0.5s; /* Transición suave */
+}
+
+/* Estilos del texto dentro del enlace */
+.navigation ul li a .text {
+  position: relative; /* Establece la posición relativa */
+  padding: 0 15px; /* Añade relleno a los lados */
+  height: 60px; /* Establece la altura */
+  display: flex; /* Usa el modelo de caja flexible */
+  align-items: center; /* Centra verticalmente */
+  color: #333; /* Color del texto */
+  opacity: 0; /* Establece la opacidad */
+  visibility: hidden; /* Oculta el texto */
+  transition: 0.5s; /* Transición suave */
+}
+
+/* Estilos del pseudo-elemento ::before del .menuToggle cuando está abierto */
+.navigation.open .menuToggle::before {
+  transform: translateY(0px) rotate(45deg); /* Transformación de rotación */
+}
+
+/* Estilos de la navegación cuando está abierta */
+.navigation.open {
+  width: 250px; /* Establece el ancho cuando está abierto */
+}
+
+/* Estilos del pseudo-elemento ::after del .menuToggle cuando está abierto */
+.navigation.open .menuToggle::after {
+  transform: translateY(0px) rotate(-45deg); /* Transformación de rotación */
+  box-shadow: 0 0 0 #333; /* Sombra para crear el efecto */
+}
+
+/* Estilos de los elementos de la lista activos cuando la navegación está abierta */
+.navigation.open ul li.active {
+  transform: translateX(10px); /* Transformación de traslación */
+}
+
+/* Estilos del texto de los elementos de la lista cuando la navegación está abierta */
+.navigation.open ul li a .text {
+  opacity: 1; /* Establece la opacidad */
+  visibility: visible; /* Hace visible el texto */
+}
+
+/* Configuración de root para variables */
+:root {
+  --card-height: 300px; /* Altura de la tarjeta */
+  --card-width: calc(var(--card-height) / 1.5); /* Ancho de la tarjeta */
+}
+
+/* Estilos generales para todo el documento */
+* {
+  box-sizing: border-box; /* Modelo de caja de borde */
+}
+
+/* Estilos para el cuerpo del documento */
+body {
+  width: 100vw; /* Establece el ancho al 100% del viewport */
+  height: 100vh; /* Establece la altura al 100% del viewport */
+  margin: 0; /* Elimina los márgenes */
+  display: flex; /* Usa el modelo de caja flexible */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  background: #191c29; /* Color de fondo */
+}
+
+/* Estilos para las tarjetas */
+.card {
+  width: calc(var(--card-width)/1.05); /* Calcula el ancho */
+  height: var(--card-height); /* Establece la altura */
+  position: relative; /* Establece la posición relativa */
+  display: flex; /* Usa el modelo de caja flexible */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: flex-end; /* Alinea los elementos en la parte inferior */
+  padding: 0 36px; /* Añade relleno a los lados */
+  perspective: 2500px; /* Define la perspectiva */
+  margin: 0 50px; /* Añade márgenes */
+  border-radius: 15px; /* Establece el radio de borde */
+}
+
+/* Estilos para la imagen de portada de las tarjetas */
+.cover-image {
+  width: 190px; /* Establece el ancho */
+  height: 260px; /* Establece la altura */
+  object-fit: cover; /* Escala la imagen para que se ajuste */
+  border-radius: 10px; /* Establece el radio de borde */
+}
+
+/* Estilos para el contenedor .wrapper */
+.wrapper {
+  transition: all 0.5s; /* Transición suave de todos los estilos */
+  position: absolute; /* Establece la posición absoluta */
+  width: 100%; /* Establece el ancho al 100% */
+  z-index: -1; /* Coloca el elemento detrás de otros elementos */
+}
+
+/* Estilos cuando se hace hover sobre la tarjeta */
+.card:hover .wrapper {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0); /* Transformación en el hover */
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75); /* Sombra */
+  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75); /* Sombra para navegadores webkit */
+  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75); /* Sombra para navegadores Firefox */
+  border-radius: 10px; /* Borde redondeado */
+}
+
+/* Estilos para los pseudo-elementos ::before y ::after del .wrapper */
+.wrapper::before,
+.wrapper::after {
+  content: ""; /* Agrega contenido generado */
+  opacity: 0; /* Establece la opacidad inicial */
+  width: 100%; /* Establece el ancho al 100% */
+  height: 80px; /* Establece la altura */
+  transition: all 0.5s; /* Transición suave de todos los estilos */
+  position: absolute; /* Establece la posición absoluta */
+  left: 0; /* Alinea a la izquierda */
+  border-radius: 9px; /* Borde redondeado */
+}
+
+/* Estilos para el pseudo-elemento ::before */
+.wrapper::before {
+  top: 0; /* Alinea en la parte superior */
+  height: 100%; /* Establece la altura al 100% */
+  background-image: linear-gradient(
+    to top,
+    transparent 46%, /* Gradiente transparente */
+    rgba(12, 13, 19, 0.5) 68%, /* Gradiente semi-transparente */
+    rgba(12, 13, 19) 97% /* Gradiente opaco */
+  );
+}
+
+/* Estilos para el pseudo-elemento ::after */
+.wrapper::after {
+  bottom: 0; /* Alinea en la parte inferior */
+  opacity: 1; /* Establece la opacidad */
+  background-image: linear-gradient(
+    to bottom,
+    transparent 46%, /* Gradiente transparente */
+    rgba(12, 13, 19, 0.5) 68%, /* Gradiente semi-transparente */
+    rgba(12, 13, 19) 97% /* Gradiente opaco */
+  );
+}
+
+/* Estilos para los pseudo-elementos ::before y ::after cuando se hace hover sobre la tarjeta */
+.card:hover .wrapper::before,
+.wrapper::after {
+  opacity: 1; /* Establece la opacidad */
+}
+
+/* Estilos específicos para el pseudo-elemento ::after cuando se hace hover sobre la tarjeta */
+.card:hover .wrapper::after {
+  height: 120px; /* Establece la altura */
+}
+
+/* Estilos para el título */
+.title {
+  width: 100%; /* Establece el ancho al 100% */
+  transition: transform 0.5s; /* Transición para la transformación */
+}
+
+/* Estilos para el título cuando se hace hover sobre la tarjeta */
+.card:hover .title {
+  transform: translate3d(0%, -50px, 100px); /* Transformación en el hover */
+}
+
+/* Estilos para el personaje */
+.character {
+  width: 100%; /* Establece el ancho al 100% */
+  opacity: 0; /* Establece la opacidad inicial */
+  transition: all 0.5s; /* Transición suave de todos los estilos */
+  position: absolute; /* Establece la posición absoluta */
+  z-index: -1; /* Coloca el elemento detrás de otros elementos */
+}
+
+/* Estilos para el personaje cuando se hace hover sobre la tarjeta */
+.card:hover .character {
+  opacity: 1; /* Establece la opacidad */
+  transform: translate3d(0%, -30%, 100px); /* Transformación en el hover */
+}
+
+/* Estilos del título */
+.titlebody {
+  max-width: 400px; /* Ajusta el ancho máximo de la imagen según sea necesario */
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho disponible del contenedor */
+  height: auto; /* Mantén la proporción del aspecto original */
+  position: absolute; /* Establece la posición absoluta */
+  top: 2%; /* Ajusta la distancia desde la parte superior según sea necesario */
+  left: 7%; /* Ajusta la distancia desde el lado izquierdo según sea necesario */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto para mejorar la legibilidad */
+  z-index: 1; /* Asegura que el título esté encima de las imágenes */
+}
+
+/* Estilos de la fila de tarjetas */
+.card-container {
+  display: flex; /* Establece un contenedor de tarjetas flexible */
+  flex-wrap: nowrap; /* Evita que las tarjetas se envuelvan */
+  overflow-x: auto; /* Permite desplazarse horizontalmente si hay muchas tarjetas */
+  padding: 20px; /* Añade relleno al contenedor de tarjetas */
+  overflow: visible; /* Hace que el contenido desbordado sea visible */
+  justify-content: flex-start; /* Alinea las tarjetas hacia la izquierda */
+  align-items: flex-start; /* Alinea las tarjetas hacia la parte superior */
+}
