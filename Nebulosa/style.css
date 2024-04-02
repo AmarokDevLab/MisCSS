@@ -1,0 +1,11 @@
+body {
+background-image: url('Nebulosa.jpg');
+background-size: 100% 100%;
+background-repeat: no-repeat;
+}
+
+mensaje{
+    background-color: #ffffff05;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(24px);
+}
